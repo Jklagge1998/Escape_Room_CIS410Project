@@ -294,17 +294,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1831052275010109820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5111a565aeaad54aa143edab308f261, type: 3}
+  m_Script: {fileID: 11500000, guid: 3068f1d90c09f1c499cc9f9bd03f2ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactColor: {r: 0.90794617, g: 0.9245283, b: 0.17007834, a: 0}
-  maxInteractionDistance: 12
+  interactColor: {r: 0.9811321, g: 0.92345756, b: 0.023139905, a: 0}
+  maxInteractionDistance: 5
   InteractMessageBox: {fileID: 0}
   playerTool: {fileID: 0}
   fpsCamera: {fileID: 0}
   playerMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 0
 --- !u!1 &7214298558176155388
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,13 +478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Playerbody: {fileID: 0}
-  mouseSensitivityX: 60
-  mouseSensitivityY: 50
-  xRotation: 0
-  yRotation: 0
-  mouseLock: 0
-  invertYaw: 1
-  invertTheta: 1
+  mouseSensitivity: 0
 --- !u!114 &6305103353117920763
 MonoBehaviour:
   m_ObjectHideFlags: 0
