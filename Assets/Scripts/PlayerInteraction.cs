@@ -75,6 +75,8 @@ public class PlayerInteraction : MonoBehaviour
             resetObjColor(prevObj);
             setInteractMessage(prevObj, true);
         }
+
+      
     }
 
     private void resetObjColor(GameObject prev)
