@@ -8,34 +8,35 @@ public class Pickup : MonoBehaviour
          */
     // public variables
 
-    public Color selectedColor; //When the mouse hovers over the GameObject, it turns to this color
+    //public Color selectedColor; //When the mouse hovers over the GameObject, it turns to this color
     public GameObject player;
-    public float MaxPickupDistance;
-    public Text message;
-    public string PickupMessage;
-    public string dropMessage;
-    public DropZone dropzone;
+    //public float MaxPickupDistance;
+    //public Text message;
+    //public string PickupMessage;
+    //public string dropMessage;
+    //public DropZone dropzone;
 
     // private variables
-    private Color OriginalColor;  //This stores the GameObject’s original color
+   // private Color OriginalColor;  //This stores the GameObject’s original color
     private MeshRenderer Renderer; //Get the GameObject’s mesh renderer to access the GameObject’s material and color
-    private bool holding = false;
-    private string currentMessage;
-    public bool activated = true;
+   // private bool holding = false;
+   // private string currentMessage;
+   // public bool activated = true;
     void Start()
     {
         //Fetch the mesh renderer component from the GameObject
         Renderer = GetComponent<MeshRenderer>();
         //Fetch the original color of the GameObject
-        OriginalColor = Renderer.material.color;
+     //   OriginalColor = Renderer.material.color;
         // set message to blank
-        message.text = "";
-        currentMessage = PickupMessage;
+    //    message.text = "";
+    //    currentMessage = PickupMessage;
     }
     void Update()
     {
 
     }
+    /*
     void OnMouseOver()
     {
         if (activated)
@@ -70,7 +71,8 @@ public class Pickup : MonoBehaviour
 
         }
     }
-
+    */
+    /*
     void OnMouseExit()
     {
         if (activated)
@@ -81,28 +83,30 @@ public class Pickup : MonoBehaviour
             //drop();
         }
     }
-
-    void pickup()
+*/
+    public void pickup()
     {
         // put object in center of camera and turn off gravity of it to hold it still
-        holding = true;
+        //holding = true;
+        //print("in pick up right now.");
         GetComponent<Rigidbody>().useGravity = false;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         transform.SetParent(player.transform);
        
-        currentMessage = dropMessage;
+        //currentMessage = dropMessage;
     }
 
     public void drop()
     {
         // deactive the effects of pickup
-        holding = false;
+        //holding = false;
+        //print("dropping now");
         Vector3 objectPos = transform.position;
         transform.SetParent(null);
         GetComponent<Rigidbody>().useGravity = true;
         transform.position = objectPos;
-        currentMessage = PickupMessage;
+        //currentMessage = PickupMessage;
         /*
         if (dropzone.pickupHasEntered == true)
         {
@@ -111,20 +115,18 @@ public class Pickup : MonoBehaviour
         }
         */
     }
-
+    
     private void OnCollisionEnter(Collision collision)
     {
         // if object is being held and collides with another object it is dropped.
-        if (holding)
-        {
-            drop();
-        }
+        drop();
     }
-
+   /*
     public void resetColor()
     {
         Renderer.material.color = OriginalColor;
     }
+   */
 
 }
 

@@ -15,12 +15,12 @@ public class GrappleGun : MonoBehaviour
     // private variables
     private bool isHoldingObj;
     private Color orignalPlayerCursorColor;
-
+    private int i;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        i = 0;
     }
 
     // Update is called once per frame
@@ -33,9 +33,29 @@ public class GrappleGun : MonoBehaviour
             if (hit.transform.gameObject.tag == "Pickup")
             {
                 // reticle updates to blue when player is hovering over pickup item in range
-                print("has hit box");
+               // print("has hit box");
                 DefaultplayerCursor.alpha = 0;
                 playerCursonOverPickup.alpha = 1;
+
+                // will enter while loop once player presses left mouse button down
+                Pickup p = hit.transform.GetComponent<Pickup>();
+                if (Input.GetMouseButton(0))
+                {
+                    //print("Mouse down to pick up");
+                    if (isHoldingObj == false)
+                    {
+                        p.pickup(); // pick up the object
+                        isHoldingObj = true;
+                    }
+                    
+                }
+                else
+                {
+                    // play let go of the mouse button or isn't pressing it to begin with
+                    p.drop();
+                    isHoldingObj = false;
+                }
+
             }
             else
             {

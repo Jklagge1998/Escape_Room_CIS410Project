@@ -37,7 +37,7 @@ public class PlayerInteraction : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, maxInteractionDistance))
         {
-            print("hit " + hit.transform.gameObject.name);
+            //print("hit " + hit.transform.gameObject.name);
             // raycast has hit an object within the maxInteractionDistance
             if (hit.transform.gameObject.tag == "equipable" || hit.transform.gameObject.tag == "collectible")
             {

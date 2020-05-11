@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class DropZone : MonoBehaviour
 {
+    /*
     public bool collectionIsActive = true;
     public bool pickupHasEntered;
     public Text itemCountMessage;
@@ -53,4 +54,5 @@ public class DropZone : MonoBehaviour
             itemsCollectedMessage.text = "You have collected " + RequiredPickups + " " + pickupType + ".";
         }
     }
+    */
 }
