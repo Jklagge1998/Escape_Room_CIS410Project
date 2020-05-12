@@ -36,7 +36,7 @@ public class SceneEnding : MonoBehaviour
         exitBackgroundImageCanvasGroup.alpha = m_Timer / fadeDuration;
         if(m_Timer > fadeDuration + displayImageDuration)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
 }

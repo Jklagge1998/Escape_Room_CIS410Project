@@ -31,13 +31,13 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Check to see if the player is on the ground. 
-        //isOnGround = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundMask);
+        isOnGround = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundMask);
 
-        //if (isOnGround && currentVelocity.y < 0)
-        //{
-        //    // reset Velocity. Note: It doesn't reset to 0 because isOnGround might register before the player has hit the ground
-        //    currentVelocity.y = -2f; // this allows the player get to the ground
-        //}
+        if (isOnGround && currentVelocity.y < 0)
+        {
+            // reset Velocity. Note: It doesn't reset to 0 because isOnGround might register before the player has hit the ground
+            currentVelocity.y = -2f; // this allows the player get to the ground
+        }
         // Get player input from users keyboard input (using unity axis inputs)
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
