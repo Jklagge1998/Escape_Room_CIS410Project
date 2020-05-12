@@ -32,14 +32,17 @@ public class RaycastShoot : MonoBehaviour
 
             StartCoroutine(ShotEffect());
 
-            Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
+            Vector3 rayOrigin = gunEnd.position;
             RaycastHit hit;
 
             laserLine.SetPosition(0, gunEnd.position);
+            Debug.DrawRay(gunEnd.position, fpsCam.transform.forward, Color.black, 5);
+            Debug.Log(gunEnd.position + " " + fpsCam.transform.forward);
 
             if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange))
             {
                 laserLine.SetPosition(1, hit.point);
+                Debug.DrawLine(gunEnd.position, hit.point, Color.green, 5);
 
                 ShootableBox health = hit.collider.GetComponent<ShootableBox>();
 
@@ -57,6 +60,7 @@ public class RaycastShoot : MonoBehaviour
             else
             {
                 laserLine.SetPosition(1, rayOrigin + (fpsCam.transform.forward * weaponRange));
+                Debug.DrawLine(gunEnd.position, rayOrigin + (fpsCam.transform.forward * weaponRange), Color.red, 5);
             }
         }
     }

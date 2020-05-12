@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     // Public Variables
     public CharacterController playerController;
+    public float maxIncline = 60;
     public float playerMovementSpeed;
     public float gravity; // -9.81f by default
     public float playerJumpHeight;
@@ -19,17 +20,24 @@ public class PlayerMovement : MonoBehaviour
     // Private Variables
     private Vector3 currentVelocity;
     private bool isOnGround;
+    private float min_y = 0;
     // Update is called once per frame
+
+    private void Start()
+    {
+        min_y = Mathf.Cos(maxIncline * Mathf.Deg2Rad);
+    }
+
     void Update()
     {
         // Check to see if the player is on the ground. 
-        isOnGround = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundMask);
+        //isOnGround = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundMask);
 
-        if (isOnGround && currentVelocity.y < 0)
-        {
-            // reset Velocity. Note: It doesn't reset to 0 because isOnGround might register before the player has hit the ground
-            currentVelocity.y = -2f; // this allows the player get to the ground
-        }
+        //if (isOnGround && currentVelocity.y < 0)
+        //{
+        //    // reset Velocity. Note: It doesn't reset to 0 because isOnGround might register before the player has hit the ground
+        //    currentVelocity.y = -2f; // this allows the player get to the ground
+        //}
         // Get player input from users keyboard input (using unity axis inputs)
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -56,5 +64,17 @@ public class PlayerMovement : MonoBehaviour
         //    GameObject bulletObject = Instantiate(bulletPrefab);
         //    bulletObject.transform.position = playerCamera.transform.position  + playerCamera.transform.forward;
         //}
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        foreach (ContactPoint contact in collision.contacts)
+        {
+            if (contact.normal.y <= -min_y)
+            {
+                //Debug.Log(contact.normal);
+                isOnGround = true;
+            }
+        }
     }
 }
