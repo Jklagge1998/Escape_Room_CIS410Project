@@ -14,7 +14,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/kristine_test.unity
     guid: 7c3b75c2ebba348f7a941e6b19ad9607
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level1-Kristine.unity
     guid: 1815821db69d145c6b9fcf2cefaea084
+  - enabled: 1
+    path: Assets/Scenes/Level1Room2.unity
+    guid: 003022c8ecc314e42990829878e6576c
   m_configObjects: {}
