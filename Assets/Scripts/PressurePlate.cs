@@ -39,11 +39,13 @@ public class PressurePlate : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.gameObject.tag);
         int triggerFlag = 0;
         foreach (string tag in triggerTags)
         {
             if (other.gameObject.tag == tag)
             {
+                Debug.Log(other.gameObject.tag);
                 triggerFlag++;
                 break; // only need one trigger tag to activate
             }

@@ -26,7 +26,8 @@ public class SceneEnding : MonoBehaviour
     {
         if(m_IsPlayerAtExit)
         {
-            EndScene();
+            //EndScene();
+            SceneManager.LoadScene(0);
         }
     }
 

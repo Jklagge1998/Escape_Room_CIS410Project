@@ -8,6 +8,7 @@ public class Door : MonoBehaviour
     public int openDir; // 0 - up/down, 1 - left/right (really left/right could be anything that's not 0)
     public float openDist; // 
     public float lTime;
+    public int box_count;
     private Vector3 closedPos;
     private Vector3 openPos;
     // Start is called before the first frame update
@@ -46,4 +47,14 @@ public class Door : MonoBehaviour
 
     }
 
+    private void Open()
+    {
+        box_count -= 1;
+        if (box_count <= 0)
+        {
+            gameObject.SetActive(false);
+            //closedPos = transform.position;
+            //openPos = new Vector3(closedPos.x, closedPos.y + 1000, closedPos.z);
+        }
+    }
 }
