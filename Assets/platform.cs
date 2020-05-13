@@ -22,6 +22,7 @@ public class platform : MonoBehaviour
 
     private void Show()
     {
+        Debug.Log("Show Activated");
         box_count -= 1;
         if (box_count <= 0)
         {
