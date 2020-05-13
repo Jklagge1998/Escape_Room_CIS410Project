@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class PortalTraveller : MonoBehaviour {
 
@@ -13,6 +14,7 @@ public class PortalTraveller : MonoBehaviour {
     public virtual void Teleport (Transform fromPortal, Transform toPortal, Vector3 pos, Quaternion rot) {
         transform.position = pos;
         transform.rotation = rot;
+        
     }
 
     // Called when first touches portal

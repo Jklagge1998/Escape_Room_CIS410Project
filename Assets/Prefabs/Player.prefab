@@ -269,7 +269,7 @@ MonoBehaviour:
     m_Bits: 2560
   bulletPrefab: {fileID: 3933721061244958957, guid: b0ea5195697c64fcebc94bcfbb6a27f5,
     type: 3}
-  playerCamera: {fileID: 0}
+  playerCamera: {fileID: 4199245969589394290}
 --- !u!114 &9146532348898868875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,6 +479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Playerbody: {fileID: 0}
   mouseSensitivity: 0
+  GunPosition: {fileID: 0}
 --- !u!114 &6305103353117920763
 MonoBehaviour:
   m_ObjectHideFlags: 0
