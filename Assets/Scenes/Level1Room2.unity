@@ -2179,6 +2179,7 @@ MonoBehaviour:
   openDir: 1
   openDist: -11
   lTime: 0
+  box_count: 0
 --- !u!4 &53443091 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4483430147617130, guid: 130b76c50bc784f5693e163c88691f9c,
@@ -3929,7 +3930,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a9bc867db3dc947329270951e50afb27, type: 2}
+  - {fileID: 2100000, guid: 1a485d6aff9b14ffebe8d441214d92e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10535,6 +10536,7 @@ MonoBehaviour:
   openDir: 1
   openDist: -11
   lTime: 0
+  box_count: 0
 --- !u!1001 &245543446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18002,7 +18004,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a9bc867db3dc947329270951e50afb27, type: 2}
+  - {fileID: 2100000, guid: 1a485d6aff9b14ffebe8d441214d92e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -59280,6 +59282,7 @@ MonoBehaviour:
   openDir: 1
   openDist: -11
   lTime: 0
+  box_count: 0
 --- !u!1001 &1383423168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81813,16 +81816,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1379919962974701198, guid: 3a94507e0d964454ba1ae719dd73098f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1379919962974701198, guid: 3a94507e0d964454ba1ae719dd73098f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8464855364600702531, guid: 3a94507e0d964454ba1ae719dd73098f,
         type: 3}
       propertyPath: groundCheck
@@ -81842,6 +81835,66 @@ PrefabInstance:
         type: 3}
       propertyPath: groundMask.m_Bits
       value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379919962974701198, guid: 3a94507e0d964454ba1ae719dd73098f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379919962974701198, guid: 3a94507e0d964454ba1ae719dd73098f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003187423803430177, guid: 3a94507e0d964454ba1ae719dd73098f,
+        type: 3}
+      propertyPath: Playerbody
+      value: 
+      objectReference: {fileID: 918712590}
+    - target: {fileID: 1003187423803430177, guid: 3a94507e0d964454ba1ae719dd73098f,
+        type: 3}
+      propertyPath: mouseSensitivity
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003187423803430177, guid: 3a94507e0d964454ba1ae719dd73098f,
+        type: 3}
+      propertyPath: GunPosition
+      value: 
+      objectReference: {fileID: 893097901}
+    - target: {fileID: 1003187423803430177, guid: 3a94507e0d964454ba1ae719dd73098f,
+        type: 3}
+      propertyPath: xRotation
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003187423803430177, guid: 3a94507e0d964454ba1ae719dd73098f,
+        type: 3}
+      propertyPath: invertYaw
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003187423803430177, guid: 3a94507e0d964454ba1ae719dd73098f,
+        type: 3}
+      propertyPath: invertTheta
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003187423803430177, guid: 3a94507e0d964454ba1ae719dd73098f,
+        type: 3}
+      propertyPath: mouseLock
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831052275010109821, guid: 3a94507e0d964454ba1ae719dd73098f,
+        type: 3}
+      propertyPath: m_SlopeLimit
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831052275010109821, guid: 3a94507e0d964454ba1ae719dd73098f,
+        type: 3}
+      propertyPath: m_StepOffset
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146532348898868875, guid: 3a94507e0d964454ba1ae719dd73098f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8014278130387740176, guid: 3a94507e0d964454ba1ae719dd73098f,
         type: 3}
@@ -81878,81 +81931,26 @@ PrefabInstance:
       propertyPath: playerTools.Array.data[1]
       value: 
       objectReference: {fileID: 893097900}
-    - target: {fileID: 1003187423803430177, guid: 3a94507e0d964454ba1ae719dd73098f,
-        type: 3}
-      propertyPath: Playerbody
-      value: 
-      objectReference: {fileID: 918712590}
-    - target: {fileID: 1003187423803430177, guid: 3a94507e0d964454ba1ae719dd73098f,
-        type: 3}
-      propertyPath: mouseSensitivity
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 1003187423803430177, guid: 3a94507e0d964454ba1ae719dd73098f,
-        type: 3}
-      propertyPath: GunPosition
-      value: 
-      objectReference: {fileID: 893097901}
-    - target: {fileID: 1003187423803430177, guid: 3a94507e0d964454ba1ae719dd73098f,
-        type: 3}
-      propertyPath: xRotation
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1003187423803430177, guid: 3a94507e0d964454ba1ae719dd73098f,
-        type: 3}
-      propertyPath: invertYaw
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1003187423803430177, guid: 3a94507e0d964454ba1ae719dd73098f,
-        type: 3}
-      propertyPath: invertTheta
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1003187423803430177, guid: 3a94507e0d964454ba1ae719dd73098f,
-        type: 3}
-      propertyPath: mouseLock
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1831052274350647010, guid: 3a94507e0d964454ba1ae719dd73098f,
         type: 3}
       propertyPath: m_Layer
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8365686960830287011, guid: 3a94507e0d964454ba1ae719dd73098f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1831052275010109821, guid: 3a94507e0d964454ba1ae719dd73098f,
-        type: 3}
-      propertyPath: m_SlopeLimit
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 1831052275010109821, guid: 3a94507e0d964454ba1ae719dd73098f,
-        type: 3}
-      propertyPath: m_StepOffset
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3757006740357791217, guid: 3a94507e0d964454ba1ae719dd73098f,
         type: 3}
       propertyPath: fpsCam
       value: 
       objectReference: {fileID: 849022330}
+    - target: {fileID: 8365686960830287011, guid: 3a94507e0d964454ba1ae719dd73098f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 707973301513499002, guid: 3a94507e0d964454ba1ae719dd73098f,
         type: 3}
       propertyPath: fpsCam
       value: 
       objectReference: {fileID: 849022330}
-    - target: {fileID: 9146532348898868875, guid: 3a94507e0d964454ba1ae719dd73098f,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5243808213635848064, guid: 3a94507e0d964454ba1ae719dd73098f,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1379919962974978030, guid: 3a94507e0d964454ba1ae719dd73098f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -81962,6 +81960,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CastShadows
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243808213635848064, guid: 3a94507e0d964454ba1ae719dd73098f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a94507e0d964454ba1ae719dd73098f, type: 3}
@@ -90543,6 +90546,7 @@ MonoBehaviour:
   openDir: 1
   openDist: -11
   lTime: 0
+  box_count: 0
 --- !u!4 &2111362462 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4593514249896194, guid: 9738be9ee92f749949ccaa6287d6a8c2,
