@@ -25,8 +25,8 @@ public class Door : MonoBehaviour
             // the door will open left or right depending on whether openDist is negative or positive
             openPos = new Vector3(closedPos.x + openDist, closedPos.y, closedPos.z);
         }
-        print("closePos: " + closedPos);
-        print("openPos: " + openPos);
+        //print("closePos: " + closedPos);
+        //print("openPos: " + openPos);
     }
 
     // Update is called once per frame
@@ -42,7 +42,7 @@ public class Door : MonoBehaviour
             }
         }
         float openPct = pressurePlatesActivated / pressurePlates.Count;
-        print("pct " + openPct);
+        //print("pct " + openPct);
         transform.position = Vector3.Lerp(closedPos, openPos, openPct); // fraction of how much the door should be open
 
     }

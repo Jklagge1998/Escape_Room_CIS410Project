@@ -16,7 +16,9 @@ public class SceneEnding : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == player)
+     
+
+       if (other.gameObject == player)
         {
             m_IsPlayerAtExit = true;
         }
@@ -27,7 +29,7 @@ public class SceneEnding : MonoBehaviour
         if(m_IsPlayerAtExit)
         {
             //EndScene();
-            SceneManager.LoadScene("Level1Room2");
+            SceneManager.LoadScene(0);
         }
     }
 
@@ -37,7 +39,7 @@ public class SceneEnding : MonoBehaviour
         exitBackgroundImageCanvasGroup.alpha = m_Timer / fadeDuration;
         if(m_Timer > fadeDuration + displayImageDuration)
         {
-            SceneManager.LoadScene("Level1Room2");
+            SceneManager.LoadScene(0);
         }
     }
 }
