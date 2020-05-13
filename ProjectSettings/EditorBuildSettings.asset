@@ -8,10 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PoC.unity
     guid: 6810f588a285c413a9b68f00b3600016
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/kristine_test.unity
     guid: 7c3b75c2ebba348f7a941e6b19ad9607
+  - enabled: 1
+    path: Assets/Scenes/Level1-Kristine.unity
+    guid: 1815821db69d145c6b9fcf2cefaea084
   m_configObjects: {}
