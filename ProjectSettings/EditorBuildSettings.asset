@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PoC.unity
     guid: 6810f588a285c413a9b68f00b3600016
+  - enabled: 1
+    path: Assets/Scenes/kristine_test.unity
+    guid: 7c3b75c2ebba348f7a941e6b19ad9607
   m_configObjects: {}

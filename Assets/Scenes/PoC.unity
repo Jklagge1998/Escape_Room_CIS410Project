@@ -271,14 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835150bc3beaae74d919d28fb34291c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedColor: {r: 0.94513196, g: 0.9622642, b: 0.077162705, a: 0}
   player: {fileID: 0}
-  MaxPickupDistance: 4
-  message: {fileID: 853820535}
-  PickupMessage: Press F to Pick Up
-  dropMessage: Press F to Drop
-  dropzone: {fileID: 936269747}
-  activated: 1
 --- !u!54 &116509304
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -478,14 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835150bc3beaae74d919d28fb34291c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedColor: {r: 0.94513196, g: 0.9622642, b: 0.077162705, a: 0}
   player: {fileID: 0}
-  MaxPickupDistance: 4
-  message: {fileID: 853820535}
-  PickupMessage: Press F to Pick Up
-  dropMessage: Press F to Drop
-  dropzone: {fileID: 936269747}
-  activated: 1
 --- !u!54 &239662194
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1865,17 +1851,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8424e190e8cee164db88a52842732211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectionIsActive: 1
-  pickupHasEntered: 0
-  itemCountMessage: {fileID: 2090356187}
-  itemsCollectedMessage: {fileID: 1981155776}
-  pickupType: Cylinders
-  RequiredPickups: 4
-  pickups:
-  - {fileID: 239662193}
-  - {fileID: 116509303}
-  - {fileID: 1499777117}
-  - {fileID: 1495720609}
 --- !u!4 &936269748
 Transform:
   m_ObjectHideFlags: 0
@@ -10586,14 +10561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835150bc3beaae74d919d28fb34291c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedColor: {r: 0.94513196, g: 0.9622642, b: 0.077162705, a: 0}
   player: {fileID: 0}
-  MaxPickupDistance: 4
-  message: {fileID: 853820535}
-  PickupMessage: Press F to Pick Up
-  dropMessage: Press F to Drop
-  dropzone: {fileID: 936269747}
-  activated: 1
 --- !u!54 &1495720610
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10715,14 +10683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835150bc3beaae74d919d28fb34291c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedColor: {r: 0.94513196, g: 0.9622642, b: 0.077162705, a: 0}
   player: {fileID: 0}
-  MaxPickupDistance: 4
-  message: {fileID: 853820535}
-  PickupMessage: Press F to Pick Up
-  dropMessage: Press F to Drop
-  dropzone: {fileID: 936269747}
-  activated: 1
 --- !u!54 &1499777118
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11758,6 +11719,11 @@ PrefabInstance:
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 1049002768}
+    - target: {fileID: 8464855364600702531, guid: 3a94507e0d964454ba1ae719dd73098f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8014278130387740176, guid: 3a94507e0d964454ba1ae719dd73098f,
         type: 3}
       propertyPath: InteractMessageBox
@@ -11787,6 +11753,16 @@ PrefabInstance:
         type: 3}
       propertyPath: mouseSensitivity
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003187423803430177, guid: 3a94507e0d964454ba1ae719dd73098f,
+        type: 3}
+      propertyPath: invertYaw
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003187423803430177, guid: 3a94507e0d964454ba1ae719dd73098f,
+        type: 3}
+      propertyPath: invertTheta
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 707973301513499002, guid: 3a94507e0d964454ba1ae719dd73098f,
         type: 3}

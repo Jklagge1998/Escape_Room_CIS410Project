@@ -39,7 +39,7 @@ public class GrappleGun : MonoBehaviour
 
                 // will enter while loop once player presses left mouse button down
                 Pickup p = hit.transform.GetComponent<Pickup>();
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButton(1))
                 {
                     //print("Mouse down to pick up");
                     if (isHoldingObj == false)

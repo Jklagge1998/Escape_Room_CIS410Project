@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     // Public Variables
     public CharacterController playerController;
+    public float maxIncline = 60;
     public float playerMovementSpeed;
     public float gravity; // -9.81f by default
     public float playerJumpHeight;
@@ -20,7 +21,14 @@ public class PlayerMovement : MonoBehaviour
     // Private Variables
     private Vector3 currentVelocity;
     private bool isOnGround;
+    private float min_y = 0;
     // Update is called once per frame
+
+    private void Start()
+    {
+        min_y = Mathf.Cos(maxIncline * Mathf.Deg2Rad);
+    }
+
     void Update()
     {
         if (!inportal)
@@ -68,6 +76,18 @@ public class PlayerMovement : MonoBehaviour
 
       
        
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        foreach (ContactPoint contact in collision.contacts)
+        {
+            if (contact.normal.y <= -min_y)
+            {
+                //Debug.Log(contact.normal);
+                isOnGround = true;
+            }
+        }
     }
 
     IEnumerator PortalMove()
