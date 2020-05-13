@@ -9,7 +9,7 @@ public class PlayerInteraction : MonoBehaviour
     public Color interactColor; // color highlighted when the player approaches an equipable or collectable item
     public float maxInteractionDistance;
     public Text InteractMessageBox;
-    public GameObject playerTool; // portal gun for now, hopefully will be adapted to an array of all the player's tools
+    public List<GameObject> playerTools; // prototype to the player inventory system to come
     public Camera fpsCamera;
     public LayerMask playerMask; // we want to ingore the player when raycasting
 
@@ -117,11 +117,21 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (obj != null)
         {
+            foreach(GameObject tool in playerTools)
+            {
+                if (obj.name == tool.tag)
+                {
+                    obj.SetActive(false); // deactivate item in scene
+                    tool.SetActive(true); // activates that tool in player's hand
+                }
+            }
+                /*
             obj.SetActive(false);
             if (obj.name == playerTool.tag) ;
             {
                 playerTool.SetActive(true);
             }
+            */
         }
     }
 }
