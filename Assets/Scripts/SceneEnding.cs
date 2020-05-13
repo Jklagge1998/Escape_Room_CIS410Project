@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneEnding : MonoBehaviour
 {
-    public float fadeDuration = 1f;
-    public float displayImageDuration = 1f;
+    public float fadeDuration = 0f;
+    public float displayImageDuration = 0f;
     public GameObject player;
     public CanvasGroup exitBackgroundImageCanvasGroup;
 
@@ -26,7 +26,7 @@ public class SceneEnding : MonoBehaviour
     {
         if(m_IsPlayerAtExit)
         {
-            EndScene( );
+            EndScene();
         }
     }
 
@@ -36,7 +36,7 @@ public class SceneEnding : MonoBehaviour
         exitBackgroundImageCanvasGroup.alpha = m_Timer / fadeDuration;
         if(m_Timer > fadeDuration + displayImageDuration)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
     }
 }
