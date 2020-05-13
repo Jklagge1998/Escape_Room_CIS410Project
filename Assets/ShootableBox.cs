@@ -7,7 +7,7 @@ public class ShootableBox : MonoBehaviour
     public int currentHealth = 1;
     public bool activated = true;
     //public int box_count;
-    public GameObject gate;
+    public Door gate;
     public GameObject platform;
 
     public void Damage(int damageAmount)
@@ -16,7 +16,7 @@ public class ShootableBox : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("Trigger being sent from shootable boxes");
-            gate.SendMessage("Open");
+            gate.Open();
             platform.SendMessage("Show");
             gameObject.SetActive(false);
             //box_count -= 1;

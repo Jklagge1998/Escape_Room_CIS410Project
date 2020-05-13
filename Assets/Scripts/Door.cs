@@ -47,11 +47,12 @@ public class Door : MonoBehaviour
 
     }
 
-    private void Open()
+    public void Open()
     {
         box_count -= 1;
         if (box_count <= 0)
         {
+            Debug.Log("Tried to Open");
             gameObject.SetActive(false);
             //closedPos = transform.position;
             //openPos = new Vector3(closedPos.x, closedPos.y + 1000, closedPos.z);
