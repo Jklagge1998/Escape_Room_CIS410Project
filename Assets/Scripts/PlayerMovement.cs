@@ -70,7 +70,9 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            inportal = false;
             StartCoroutine(PortalMove());
+            
 
         }
 
@@ -97,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
         var startTime = Time.time;
         while (Time.time < (startTime + 1))
         {
-            playerController.SimpleMove(movedirection * 800 * Time.deltaTime);
+            playerController.SimpleMove(movedirection * 1500 * Time.deltaTime);
             yield return null;
         }
         
