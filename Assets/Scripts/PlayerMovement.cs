@@ -94,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator PortalMove()
     {
+        Debug.Log("NOOOO");
         inportal = false;
         Vector3 movedirection = new Vector3(0, 0, 1);
         var startTime = Time.time;
