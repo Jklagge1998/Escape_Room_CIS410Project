@@ -9,6 +9,7 @@ public class SceneEnding : MonoBehaviour
     public float displayImageDuration = 0f;
     public GameObject player;
     public CanvasGroup exitBackgroundImageCanvasGroup;
+    public string sceneName;
 
     bool m_IsPlayerAtExit;
     float m_Timer;
@@ -29,7 +30,7 @@ public class SceneEnding : MonoBehaviour
         if(m_IsPlayerAtExit)
         {
             //EndScene();
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(sceneName);
         }
     }
 
