@@ -9,6 +9,8 @@ public class ShootableBox : MonoBehaviour
     //public int box_count;
     public Door gate;
     public GameObject platform;
+    //public int box_count = 1;
+    
 
     public void Damage(int damageAmount)
     {
@@ -17,28 +19,31 @@ public class ShootableBox : MonoBehaviour
         {
             Debug.Log("Trigger being sent from shootable boxes");
             gate.Open();
-            platform.SendMessage("Show");
+            //platform.SendMessage("Show");
+            //platform.transform.position = new Vector3(platform.transform.position.x, platform.transform.position.y + 10f, platform.transform.position.z);
+            //platform.SetActive(true);
             gameObject.SetActive(false);
             //box_count -= 1;
             //if (box_count == 0)
             //{
-            //    activated_object.SendMessage("Open");
+            //    platform.SetActive(true);
+            //    gate.Open();
+            //    //activated_object.SendMessage("Open");
             //    Debug.Log("Registered zero shootable boxes");
-            //    //activated_object.SetActive(true);
+
+            //    if (activated)
+            //    {
+            //        activated = false;
+            //        Debug.Log("Deactivated");
+            //    }
+            //    else
+            //    {
+            //        activated = true;
+            //        Debug.Log("Activated");
+            //    }
+
+
             //}
-
-            if (activated)
-            {
-                activated = false;
-                Debug.Log("Deactivated");
-            }
-            else
-            {
-                activated = true;
-                Debug.Log("Activated");
-            }
-
-
         }
 
     }
