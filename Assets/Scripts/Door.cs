@@ -22,7 +22,7 @@ public class Door : MonoBehaviour
         closedPos = transform.position;
         if (openDir == 0)
         {
-            
+            StartCoroutine(SoundEffect());
 
             // the door will open up or down depending on whether openDist is negative or positive
             openPos = new Vector3(closedPos.x, closedPos.y + openDist, closedPos.z);
