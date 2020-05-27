@@ -20,6 +20,8 @@ public class Portal : MonoBehaviour {
     List<PortalTraveller> trackedTravellers;
     MeshFilter screenMeshFilter;
 
+    private bool activated;
+
     void Awake () {
         playerCam = Camera.main;
         portalCam = GetComponentInChildren<Camera> ();
@@ -29,37 +31,50 @@ public class Portal : MonoBehaviour {
         screen.material.SetInt ("displayMask", 1);
     }
 
+    private void turnPortalOff(){
+        activated = false;
+        screen.enabled = false;
+    }
+    private void turnPortalOn(){
+        screen.enabled = true;
+        activated = true;
+    }
+
     void LateUpdate () {
         HandleTravellers ();
     }
 
     void HandleTravellers () {
+        if(activated)
+        {
+            for (int i = 0; i < trackedTravellers.Count; i++) {
+                PortalTraveller traveller = trackedTravellers[i];
+                Transform travellerT = traveller.transform;
+                var m = linkedPortal.transform.localToWorldMatrix * transform.worldToLocalMatrix * travellerT.localToWorldMatrix;
 
-        for (int i = 0; i < trackedTravellers.Count; i++) {
-            PortalTraveller traveller = trackedTravellers[i];
-            Transform travellerT = traveller.transform;
-            var m = linkedPortal.transform.localToWorldMatrix * transform.worldToLocalMatrix * travellerT.localToWorldMatrix;
+                Vector3 offsetFromPortal = travellerT.position - transform.position;
+                int portalSide = System.Math.Sign (Vector3.Dot (offsetFromPortal, transform.forward));
+                int portalSideOld = System.Math.Sign (Vector3.Dot (traveller.previousOffsetFromPortal, transform.forward));
+                // Teleport the traveller if it has crossed from one side of the portal to the other
+                if (portalSide != portalSideOld) {
+                    var positionOld = travellerT.position;
+                    var rotOld = travellerT.rotation;
+                    traveller.Teleport (transform, linkedPortal.transform, m.GetColumn (3), m.rotation);
+                    traveller.graphicsClone.transform.SetPositionAndRotation (positionOld, rotOld);
+                    // Can't rely on OnTriggerEnter/Exit to be called next frame since it depends on when FixedUpdate runs
+                    //linkedPortal.OnTravellerEnterPortal (traveller);
+                    trackedTravellers.RemoveAt (i);
+                    i--;
 
-            Vector3 offsetFromPortal = travellerT.position - transform.position;
-            int portalSide = System.Math.Sign (Vector3.Dot (offsetFromPortal, transform.forward));
-            int portalSideOld = System.Math.Sign (Vector3.Dot (traveller.previousOffsetFromPortal, transform.forward));
-            // Teleport the traveller if it has crossed from one side of the portal to the other
-            if (portalSide != portalSideOld) {
-                var positionOld = travellerT.position;
-                var rotOld = travellerT.rotation;
-                traveller.Teleport (transform, linkedPortal.transform, m.GetColumn (3), m.rotation);
-                traveller.graphicsClone.transform.SetPositionAndRotation (positionOld, rotOld);
-                // Can't rely on OnTriggerEnter/Exit to be called next frame since it depends on when FixedUpdate runs
-                //linkedPortal.OnTravellerEnterPortal (traveller);
-                trackedTravellers.RemoveAt (i);
-                i--;
-
-            } else {
-                traveller.graphicsClone.transform.SetPositionAndRotation (m.GetColumn (3), m.rotation);
-                //UpdateSliceParams (traveller);
-                traveller.previousOffsetFromPortal = offsetFromPortal;
+                } else {
+                    traveller.graphicsClone.transform.SetPositionAndRotation (m.GetColumn (3), m.rotation);
+                    //UpdateSliceParams (traveller);
+                    traveller.previousOffsetFromPortal = offsetFromPortal;
+                }
             }
         }
+
+        
     }
 
     // Called before any portal cameras are rendered for the current frame
