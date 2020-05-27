@@ -11,18 +11,26 @@ public class Door : MonoBehaviour
     public int box_count;
     private Vector3 closedPos;
     private Vector3 openPos;
+    private AudioSource door_audio;
+    private WaitForSeconds openDuration = new WaitForSeconds(.07f);
     public GameObject platform;
     // Start is called before the first frame update
     void Start()
     {
+        door_audio = GetComponent<AudioSource>();
+
         closedPos = transform.position;
         if (openDir == 0)
         {
+            
+
             // the door will open up or down depending on whether openDist is negative or positive
             openPos = new Vector3(closedPos.x, closedPos.y + openDist, closedPos.z);
         }
         else
         {
+            //StartCoroutine(SoundEffect());
+
             // the door will open left or right depending on whether openDist is negative or positive
             openPos = new Vector3(closedPos.x + openDist, closedPos.y, closedPos.z);
         }
@@ -40,6 +48,7 @@ public class Door : MonoBehaviour
             if (p.triggered == true)
             {
                 pressurePlatesActivated++;
+                
             }
         }
         float openPct = pressurePlatesActivated / pressurePlates.Count;
@@ -54,10 +63,23 @@ public class Door : MonoBehaviour
         if (box_count <= 0)
         {
             Debug.Log("Tried to Open");
+            //door_audio.Play();
+            StartCoroutine(SoundEffect());
             gameObject.SetActive(false);
             platform.SetActive(true);
             //closedPos = transform.position;
             //openPos = new Vector3(closedPos.x, closedPos.y + 1000, closedPos.z);
         }
+    }
+
+    private IEnumerator SoundEffect()
+    {
+        if (gameObject.GetComponent<AudioSource>() != null)
+        {
+            Debug.Log("Audio Source detected on door... should be playing?");
+            door_audio.Play();
+        }
+            
+        yield return openDuration;
     }
 }

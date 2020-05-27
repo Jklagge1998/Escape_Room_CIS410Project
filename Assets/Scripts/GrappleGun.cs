@@ -16,11 +16,14 @@ public class GrappleGun : MonoBehaviour
     private bool isHoldingObj;
     private Color orignalPlayerCursorColor;
     private int i;
+    private AudioSource grappleAudio;
+    private WaitForSeconds shotDuration = new WaitForSeconds(.07f);
 
     // Start is called before the first frame update
     void Start()
     {
         i = 0;
+        grappleAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -41,11 +44,14 @@ public class GrappleGun : MonoBehaviour
                 Pickup p = hit.transform.GetComponent<Pickup>();
                 if (Input.GetMouseButton(1))
                 {
+                    
+
                     //print("Mouse down to pick up");
                     if (isHoldingObj == false)
                     {
                         p.pickup(); // pick up the object
                         isHoldingObj = true;
+                        StartCoroutine(SoundEffect());
                     }
                     
                 }
@@ -72,5 +78,12 @@ public class GrappleGun : MonoBehaviour
             DefaultplayerCursor.alpha = 1;
         }
         
+    }
+
+    private IEnumerator SoundEffect()
+    {
+        grappleAudio.Play();
+
+        yield return shotDuration;
     }
 }
