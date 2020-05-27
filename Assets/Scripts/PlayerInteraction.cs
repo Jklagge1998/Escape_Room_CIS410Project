@@ -12,6 +12,7 @@ public class PlayerInteraction : MonoBehaviour
     public List<GameObject> playerTools; // prototype to the player inventory system to come
     public Camera fpsCamera;
     public LayerMask playerMask; // we want to ingore the player when raycasting
+    public lever lever;
 
     // private variables
     private Color currOriginalColor; // will hold highlighted items original color
@@ -51,6 +52,28 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     // user has pressed F to interact 
                     SetInteractMode(currObj);
+                }
+
+                if (currObj != prevObj)
+                {
+                    resetObjColor(prevObj);
+                    // set curr to prev
+                    prevOriginalColor = currOriginalColor;
+                    prevObj = currObj;
+                }
+            }
+            else if (hit.transform.gameObject.tag == "lever")
+            {
+                // update current
+                currObj = hit.transform.gameObject;
+                currOriginalColor = currObj.GetComponent<Renderer>().material.color; // store original color
+                currObj.GetComponent<Renderer>().material.color = interactColor; // highlight object with interactColor   
+                setInteractMessage(currObj, false);
+
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    // user has pressed F to interact 
+                    lever.SendMessage("switchlever");
                 }
 
                 if (currObj != prevObj)
@@ -101,6 +124,10 @@ public class PlayerInteraction : MonoBehaviour
         else if (obj.tag == "collectible")
         {
             InteractMessageBox.text = "Press F to collect";
+        }
+        else if (obj.tag == "lever")
+        {
+            InteractMessageBox.text = "Press F to switch";
         }
 
     }

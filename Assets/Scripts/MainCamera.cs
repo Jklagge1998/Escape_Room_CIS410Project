@@ -8,6 +8,13 @@ public class MainCamera : MonoBehaviour {
 
     void Awake () {
         portals = FindObjectsOfType<Portal> ();
+        if(!activated){
+            foreach (Portal p in portals)
+            {
+                p.SendMessage("turnPortalOff");
+            }
+        }
+        
     }
 
     void OnPreCull() {
@@ -31,6 +38,22 @@ public class MainCamera : MonoBehaviour {
 
        
 
+    }
+
+    private void activatePortal(){
+        activated = true;
+        foreach (Portal p in portals)
+            {
+                p.SendMessage("turnPortalOn");
+            }
+    }
+
+    private void deactivatePortal(){
+        activated = false;
+        foreach (Portal p in portals)
+            {
+                p.SendMessage("turnPortalOff");
+            }
     }
 
 }
