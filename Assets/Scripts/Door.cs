@@ -11,6 +11,7 @@ public class Door : MonoBehaviour
     public int box_count;
     private Vector3 closedPos;
     private Vector3 openPos;
+    public GameObject platform;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +55,7 @@ public class Door : MonoBehaviour
         {
             Debug.Log("Tried to Open");
             gameObject.SetActive(false);
+            platform.SetActive(true);
             //closedPos = transform.position;
             //openPos = new Vector3(closedPos.x, closedPos.y + 1000, closedPos.z);
         }

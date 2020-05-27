@@ -13,14 +13,14 @@ public class RaycastShoot : MonoBehaviour
 
     public Camera fpsCam;
     private WaitForSeconds shotDuration = new WaitForSeconds(.07f);
-    //private AudioSource gunAudio;
+    private AudioSource gunAudio;
     private LineRenderer laserLine;
     private float nextFire;
 
     void Start()
     {
         laserLine = GetComponent<LineRenderer>();
-        //gunAudio = GetComponent<AudioSource>();
+        //gunAudio = GetComponentInParent<AudioSource>();
         //fpsCam = GetComponentInParent<Camera>();
     }
 
