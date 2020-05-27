@@ -521,6 +521,7 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 0
+  lever: {fileID: 0}
 --- !u!65 &1471533994
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -818,9 +819,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Playerbody: {fileID: 1831052275010109794}
-  mouseSensitivityX: 100
-  mouseSensitivityY: 50
-  xRotation: 90
+  mouseSensitivityX: 45
+  mouseSensitivityY: 45
+  xRotation: 45
   yRotation: 0
   mouseLock: 0
   invertYaw: 1
@@ -852,7 +853,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
