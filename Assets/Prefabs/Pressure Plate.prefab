@@ -106,6 +106,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressDownDistance: 0.3
+  triggered: 0
+  triggerTags: []
 --- !u!54 &1990799794274123685
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -120,5 +122,5 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
