@@ -70,3 +70,5 @@ public class RaycastShoot : MonoBehaviour
         laserLine.enabled = false;
     }
 }
+
+//Followed this tutorial suggested by Trevor: https://www.youtube.com/watch?v=AGd16aspnPA
