@@ -34,15 +34,20 @@ public class Timer : MonoBehaviour
 
     public void Finish()
     {
-        Timer_Text.color = Color.yellow;
+        //Timer_Text.color = Color.yellow;
 
         float score = Time.time - start_time;
 
         if (score < PlayerPrefs.GetFloat("Intro_High_Score", 99999))
         {
+            Timer_Text.color = Color.green;
             PlayerPrefs.SetFloat("Intro_High_Score", score);
             Debug.Log("Changed high score");
             highScore.text = score.ToString();
+        }
+        else
+        {
+            Timer_Text.color = Color.red;
         }
 
         finished = true;
