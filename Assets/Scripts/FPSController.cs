@@ -23,7 +23,7 @@ public class FPSController : PortalTraveller {
     }
 
     public override void Teleport(Transform fromPortal, Transform toPortal, Vector3 pos, Quaternion rot) {
-        Debug.Log("HELLO");
+        
         transform.position = pos;
         Vector3 eulerRot = rot.eulerAngles;
         float delta = Mathf.DeltaAngle (smoothYaw, eulerRot.y);

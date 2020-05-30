@@ -20,7 +20,7 @@ public class Portal : MonoBehaviour {
     List<PortalTraveller> trackedTravellers;
     MeshFilter screenMeshFilter;
 
-    private bool activated;
+    public bool activated = true;
 
     void Awake () {
         playerCam = Camera.main;
