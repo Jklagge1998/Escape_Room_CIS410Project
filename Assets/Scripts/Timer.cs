@@ -8,10 +8,13 @@ public class Timer : MonoBehaviour
     public Text Timer_Text;
     private float start_time;
     private bool finished = false;
+    public Text highScore;
 
     void Start()
     {
         start_time = Time.time;
+        highScore.text = PlayerPrefs.GetFloat("Intro_High_Score", 99999).ToString();
+        
     }
 
     void Update()
@@ -32,9 +35,27 @@ public class Timer : MonoBehaviour
     public void Finish()
     {
         Timer_Text.color = Color.yellow;
+
+        float score = Time.time - start_time;
+
+        if (score < PlayerPrefs.GetFloat("Intro_High_Score", 99999))
+        {
+            PlayerPrefs.SetFloat("Intro_High_Score", score);
+            Debug.Log("Changed high score");
+            highScore.text = score.ToString();
+        }
+
         finished = true;
 
+    }
+
+    public void Reset()
+    {
+        PlayerPrefs.DeleteKey("Intro_High_Score");
+        highScore.text = "0";
     }
 }
 
 //Followed this tutorial: https://www.youtube.com/watch?v=x-C95TuQtf0
+
+
