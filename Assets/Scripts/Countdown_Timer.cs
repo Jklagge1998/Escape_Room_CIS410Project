@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Countdown_Timer : MonoBehaviour
 {
     float currentTime = 0f;
-    float startingTime = 40f;
+    float startingTime = 60f;
     public string sceneName;
 
     [SerializeField] Text countdown_text;
