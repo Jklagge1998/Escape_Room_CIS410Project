@@ -25,6 +25,8 @@ public class Door : MonoBehaviour
             StartCoroutine(SoundEffect());
 
             // the door will open up or down depending on whether openDist is negative or positive
+            StartCoroutine(SoundEffect());
+            //door_audio.Play();
             openPos = new Vector3(closedPos.x, closedPos.y + openDist, closedPos.z);
         }
         else
@@ -32,6 +34,8 @@ public class Door : MonoBehaviour
             //StartCoroutine(SoundEffect());
 
             // the door will open left or right depending on whether openDist is negative or positive
+            StartCoroutine(SoundEffect());
+            //door_audio.Play();
             openPos = new Vector3(closedPos.x + openDist, closedPos.y, closedPos.z);
         }
         //print("closePos: " + closedPos);
@@ -62,11 +66,13 @@ public class Door : MonoBehaviour
         box_count -= 1;
         if (box_count <= 0)
         {
-            Debug.Log("Tried to Open");
-            //door_audio.Play();
+
             StartCoroutine(SoundEffect());
+            //door_audio.Play();
             gameObject.SetActive(false);
             platform.SetActive(true);
+            Debug.Log("Tried to Open");
+            //door_audio.Play();
             //closedPos = transform.position;
             //openPos = new Vector3(closedPos.x, closedPos.y + 1000, closedPos.z);
         }
