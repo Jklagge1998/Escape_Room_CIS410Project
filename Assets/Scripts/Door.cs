@@ -22,10 +22,10 @@ public class Door : MonoBehaviour
         closedPos = transform.position;
         if (openDir == 0)
         {
-            StartCoroutine(SoundEffect());
+            //StartCoroutine(SoundEffect());
 
             // the door will open up or down depending on whether openDist is negative or positive
-            StartCoroutine(SoundEffect());
+            //StartCoroutine(SoundEffect());
             //door_audio.Play();
             openPos = new Vector3(closedPos.x, closedPos.y + openDist, closedPos.z);
         }
@@ -34,7 +34,7 @@ public class Door : MonoBehaviour
             //StartCoroutine(SoundEffect());
 
             // the door will open left or right depending on whether openDist is negative or positive
-            StartCoroutine(SoundEffect());
+            //StartCoroutine(SoundEffect());
             //door_audio.Play();
             openPos = new Vector3(closedPos.x + openDist, closedPos.y, closedPos.z);
         }
@@ -57,6 +57,14 @@ public class Door : MonoBehaviour
         }
         float openPct = pressurePlatesActivated / pressurePlates.Count;
         //print("pct " + openPct);
+        if (openPct == 1)
+        {
+            if (gameObject.GetComponent<AudioSource>() != null)
+            {
+                Debug.Log("Should be playing gate sound now");
+                door_audio.Play();
+            }
+        }
         transform.position = Vector3.Lerp(closedPos, openPos, openPct); // fraction of how much the door should be open
 
     }
@@ -67,15 +75,21 @@ public class Door : MonoBehaviour
         if (box_count <= 0)
         {
 
-            StartCoroutine(SoundEffect());
-            //door_audio.Play();
-            gameObject.SetActive(false);
+            //StartCoroutine(SoundEffect());
+            if (gameObject.GetComponent<AudioSource>() != null)
+            {
+                door_audio.Play();
+            }
+            //gameObject.SetActive(false);
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            gameObject.GetComponent<BoxCollider>().enabled = false;
             platform.SetActive(true);
             Debug.Log("Tried to Open");
             //door_audio.Play();
             //closedPos = transform.position;
             //openPos = new Vector3(closedPos.x, closedPos.y + 1000, closedPos.z);
         }
+        Debug.Log(box_count);
     }
 
     private IEnumerator SoundEffect()

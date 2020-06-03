@@ -15,6 +15,7 @@ public class Pickup : MonoBehaviour
     //public string PickupMessage;
     //public string dropMessage;
     //public DropZone dropzone;
+    private float alpha = 0.5f;
 
     // private variables
    // private Color OriginalColor;  //This stores the GameObject’s original color
@@ -89,6 +90,8 @@ public class Pickup : MonoBehaviour
         // put object in center of camera and turn off gravity of it to hold it still
         //holding = true;
         //print("in pick up right now.");
+        ChangeAlpha(gameObject.GetComponent<Renderer>().material, alpha);
+        Debug.Log("Should have changed Alpha");
         GetComponent<Rigidbody>().useGravity = false;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
@@ -102,6 +105,7 @@ public class Pickup : MonoBehaviour
         // deactive the effects of pickup
         //holding = false;
         //print("dropping now");
+        ChangeAlpha(gameObject.GetComponent<Renderer>().material, 1);
         Vector3 objectPos = transform.position;
         transform.SetParent(null);
         GetComponent<Rigidbody>().useGravity = true;
@@ -127,6 +131,12 @@ public class Pickup : MonoBehaviour
         Renderer.material.color = OriginalColor;
     }
    */
+   private void ChangeAlpha(Material mat, float alphaVal)
+    {
+        Color oldColor = mat.color;
+        Color newColor = new Color(oldColor.r, oldColor.g, oldColor.b, alphaVal);
+        mat.SetColor("_Color", newColor);
+    }
 
 }
 
