@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 
-public class MainCamera : MonoBehaviour {
 
+public class MainCamera : MonoBehaviour {
+    private bool everyother;
     public bool activated = true;
+    
 
     Portal[] portals;
 
     void Awake () {
+        everyother = true;
         portals = FindObjectsOfType<Portal> ();
         if(!activated){
             foreach (Portal p in portals)
@@ -19,22 +22,27 @@ public class MainCamera : MonoBehaviour {
 
     void OnPreCull() {
 
-        if (activated)
+        if (activated && everyother)
         {
-            for (int i = 0; i < portals.Length; i++)
-            {
-                portals[i].PrePortalRender();
-            }
+            // for (int i = 0; i < portals.Length; i++)
+            // {
+            //     portals[i].PrePortalRender();
+            // }
             for (int i = 0; i < portals.Length; i++)
             {
                 portals[i].Render();
             }
 
-            for (int i = 0; i < portals.Length; i++)
-            {
-                portals[i].PostPortalRender();
-            }
+            // for (int i = 0; i < portals.Length; i++)
+            // {
+            //     portals[i].PostPortalRender();
+            // }
+            everyother = false;
         }
+        else{
+            everyother = true;
+        }
+
 
        
 
