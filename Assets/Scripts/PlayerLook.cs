@@ -36,7 +36,7 @@ public class PlayerLook : MonoBehaviour
 
         yRotation = yRotation + (invertYaw ? mouseY : -mouseY);
 
-        yRotation = Mathf.Clamp(yRotation, -89f, 89f); // Limits player's camera up/down movement to 180 degrees 
+        yRotation = Mathf.Clamp(yRotation, -45f, 89f); // Limits player's camera up/down movement to 180 degrees 
 
         mouseX = xRotation * Mathf.Deg2Rad;
         mouseY = yRotation * Mathf.Deg2Rad;
