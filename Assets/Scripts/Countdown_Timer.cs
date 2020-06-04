@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Countdown_Timer : MonoBehaviour
 {
     float currentTime = 0f;
-    float startingTime = 180.1f;
+    public float startingTime = 180.1f;
     public string sceneName;
 
     [SerializeField] Text countdown_text;
@@ -25,7 +25,7 @@ public class Countdown_Timer : MonoBehaviour
         currentTime -= 1 * Time.deltaTime;
         string minutes = Mathf.Floor(currentTime / 60).ToString("00");
         float seconds = (currentTime % 60);
-        Debug.Log("Seconds: " + seconds.ToString());
+        //Debug.Log("Seconds: " + seconds.ToString());
         if (seconds >= 59 && seconds < 60)
         {
             countdown_text.text = "Time Left: " + minutes + ": 59";
