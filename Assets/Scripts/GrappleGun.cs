@@ -26,8 +26,8 @@ public class GrappleGun : MonoBehaviour
         grappleAudio = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    // Update is called once per frame at the end of the frame
+   void LateUpdate()
     {
         Ray ray = new Ray(fpsCamera.gameObject.transform.position, fpsCamera.gameObject.transform.forward);
         RaycastHit hit;
