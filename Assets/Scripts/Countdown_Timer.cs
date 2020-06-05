@@ -42,11 +42,11 @@ public class Countdown_Timer : MonoBehaviour
             countdown_text.text = "0.00";
             SceneManager.LoadScene(sceneName);
         }
-        else if (currentTime <= (startingTime * .50))
+        else if (currentTime <= (startingTime * .25))
         {
             countdown_text.color = Color.red;
         }
-        else if (currentTime <= (startingTime * .80))
+        else if (currentTime <= (startingTime * .50))
         {
             countdown_text.color = Color.yellow;
         }
