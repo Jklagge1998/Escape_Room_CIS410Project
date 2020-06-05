@@ -12,6 +12,7 @@ public class PortalTraveller : MonoBehaviour {
     public Material[] cloneMaterials { get; set; }
 
     public virtual void Teleport (Transform fromPortal, Transform toPortal, Vector3 pos, Quaternion rot) {
+        Debug.Log("Teleport");
         transform.position = pos;
         transform.rotation = rot;
         
