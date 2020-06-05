@@ -2159,11 +2159,11 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Times To Beat:
 
-    Level 1 TBD
+    Level 1  3:00
 
-    Level 2 TBD
+    Level 2  8:20
 
-    Level 3 TBD'
+    Level 3 10:50'
 --- !u!222 &1564127671
 CanvasRenderer:
   m_ObjectHideFlags: 0
