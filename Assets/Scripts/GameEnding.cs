@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //Notes: This code is from the John Lemon Haunted Jaunt tutorial which we worked on for
 // Homework assignment 2
@@ -11,6 +12,7 @@ public class GameEnding : MonoBehaviour
     public float displayImageDuration = 1f;
     public GameObject player;
     public CanvasGroup exitBackgroundImageCanvasGroup;
+    public string scene;
 
     bool m_IsPlayerAtExit;
     float m_Timer;
@@ -39,7 +41,7 @@ public class GameEnding : MonoBehaviour
 
         if (m_Timer > fadeDuration + displayImageDuration)
         {
-            Application.Quit();
+            SceneManager.LoadScene(scene);
         }
     }
 }
