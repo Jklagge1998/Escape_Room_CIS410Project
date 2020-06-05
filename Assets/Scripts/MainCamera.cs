@@ -22,7 +22,7 @@ public class MainCamera : MonoBehaviour {
 
     void OnPreCull() {
 
-        if (activated && everyother)
+        if (activated)
         {
             // for (int i = 0; i < portals.Length; i++)
             // {
@@ -38,9 +38,6 @@ public class MainCamera : MonoBehaviour {
             //     portals[i].PostPortalRender();
             // }
             everyother = false;
-        }
-        else{
-            everyother = true;
         }
 
 
