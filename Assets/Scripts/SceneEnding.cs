@@ -31,7 +31,7 @@ public class SceneEnding : MonoBehaviour
         {
             //EndScene();
             //SceneManager.LoadScene(sceneName);
-            if (gameObject.tag == "Slime")
+            if (gameObject.tag == "Slime" || gameObject.tag == "Portal")
             {
                 EndScene();
             }

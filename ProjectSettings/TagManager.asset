@@ -11,6 +11,7 @@ TagManager:
   - equipable
   - lever
   - Slime
+  - Portal
   layers:
   - Default
   - TransparentFX
