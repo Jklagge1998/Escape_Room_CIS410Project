@@ -12,6 +12,10 @@ public class Countdown_Timer : MonoBehaviour
 
     [SerializeField] Text countdown_text;
 
+    float m_Timer;
+    public float fadeDuration = 1f;
+    public float displayImageDuration = 1f;
+    public CanvasGroup exitBackgroundImageCanvasGroup;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +44,8 @@ public class Countdown_Timer : MonoBehaviour
         if (currentTime <= 0)
         {
             countdown_text.text = "0.00";
-            SceneManager.LoadScene(sceneName);
+            //SceneManager.LoadScene(sceneName);
+            EndLevel();
         }
         else if (currentTime <= (startingTime * .25))
         {
@@ -49,6 +54,18 @@ public class Countdown_Timer : MonoBehaviour
         else if (currentTime <= (startingTime * .50))
         {
             countdown_text.color = Color.yellow;
+        }
+    }
+
+    void EndLevel()
+    {
+        m_Timer += Time.deltaTime;
+
+        exitBackgroundImageCanvasGroup.alpha = m_Timer / fadeDuration;
+
+        if (m_Timer > fadeDuration + displayImageDuration)
+        {
+            SceneManager.LoadScene(sceneName);
         }
     }
 }
