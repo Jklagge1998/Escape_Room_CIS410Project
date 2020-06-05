@@ -19,10 +19,10 @@ public class GameEnding : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == player)
-        {
+        //if (other.gameObject == player)
+        //{
             m_IsPlayerAtExit = true;
-        }
+        //}
     }
 
     void Update()

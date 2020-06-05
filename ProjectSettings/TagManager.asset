@@ -10,6 +10,8 @@ TagManager:
   - Grapple Gun
   - equipable
   - lever
+  - Slime
+  - Portal
   layers:
   - Default
   - TransparentFX
