@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+Credit to https://github.com/SebLague/Portals/tree/master for providing much of the underlying code.
+*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

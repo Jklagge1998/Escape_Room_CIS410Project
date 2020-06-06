@@ -1,15 +1,17 @@
-﻿using UnityEngine;
+﻿/*
+Credit to https://github.com/SebLague/Portals/tree/master for providing much of the underlying code.
+*/
+using UnityEngine;
 
 
 public class MainCamera : MonoBehaviour {
-    private bool everyother;
     public bool activated = true;
     
 
     Portal[] portals;
 
     void Awake () {
-        everyother = true;
+
         portals = FindObjectsOfType<Portal> ();
         if(!activated){
             foreach (Portal p in portals)
@@ -24,25 +26,11 @@ public class MainCamera : MonoBehaviour {
 
         if (activated)
         {
-            // for (int i = 0; i < portals.Length; i++)
-            // {
-            //     portals[i].PrePortalRender();
-            // }
             for (int i = 0; i < portals.Length; i++)
             {
                 portals[i].Render();
             }
-
-            // for (int i = 0; i < portals.Length; i++)
-            // {
-            //     portals[i].PostPortalRender();
-            // }
-            everyother = false;
         }
-
-
-       
-
     }
 
     private void activatePortal(){
